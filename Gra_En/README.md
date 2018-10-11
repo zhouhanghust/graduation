@@ -1,0 +1,3 @@
+extractGZdata.py:提取.json.gz压缩文件 并抽取其中的评论内容和打分 存入raw_data中以pickle的形式，写入list格式保存
+cleanData.py:读取raw_data中的数据，调用doExperiment中的函数进行清洗，并将结果存入cuted_unbalanced_data中
+tokenizer_smote/tokenizer_smote.py：读取cuted_unbalanced_data中的数据，tokenizer化，并将tokenizer存入本文件夹中，并用smote平衡化数据，存入en_ultimately文件夹中

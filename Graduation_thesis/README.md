@@ -1,0 +1,4 @@
+data_source:爬虫程序及数据
+mergeAndCleandata.py:汇总数据，分词，将评论词小于6个的过滤掉
+tokenizer_smote.py:制作标记器，并保存标记器，使用SMOTEENN平衡数据
+Chinese_ultimately:X.npy为smotebalance之后的数据，已经用标记器标记好了，y.npy为对应的标签，但该数据还未shuffle
