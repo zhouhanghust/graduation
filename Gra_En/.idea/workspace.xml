@@ -20,48 +20,63 @@
     <session id="-1321251656">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="12" />
+          <entry key="md" value="1" />
+          <entry key="py" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="12" />
+          <entry key="Markdown" value="1" />
+          <entry key="Python" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2147" />
+          <entry key="py" value="2148" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2146" />
+          <entry key="Python" value="2147" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tokenizer_smote/tokenizer_smote.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="290">
-              <caret line="48" column="46" lean-forward="true" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
+              <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cleanData.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,6 +91,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -83,9 +101,9 @@
         <option value="$PROJECT_DIR$/doExperiment/justCleanData.py" />
         <option value="$PROJECT_DIR$/doExperiment/__init__.py" />
         <option value="$PROJECT_DIR$/doExperiment/cleanAndClear.py" />
-        <option value="$PROJECT_DIR$/cleanData.py" />
         <option value="$PROJECT_DIR$/cleanDataMakeToken.py" />
         <option value="$PROJECT_DIR$/tokenizer_smote/tokenizer_smote.py" />
+        <option value="$PROJECT_DIR$/cleanData.py" />
       </list>
     </option>
   </component>
@@ -101,6 +119,7 @@
     <option name="width" value="1280" />
     <option name="height" value="712" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -113,11 +132,6 @@
             <path>
               <item name="Gra_En" type="b2602c69:ProjectViewProjectNode" />
               <item name="Gra_En" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gra_En" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gra_En" type="462c0819:PsiDirectoryNode" />
-              <item name="cuted_unbalanced_data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Gra_En" type="b2602c69:ProjectViewProjectNode" />
@@ -291,8 +305,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="69" y="83" width="1280" height="712" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.221875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.221875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -326,7 +341,6 @@
     <entry file="file://$PROJECT_DIR$/doExperiment/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/cleanData.py" />
     <entry file="file://$PROJECT_DIR$/doExperiment/cleanAndClear.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
@@ -341,13 +355,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cleanDataMakeToken.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanDataMakeToken.py" />
     <entry file="file://$PROJECT_DIR$/extractGZdata.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
@@ -358,9 +366,29 @@
     <entry file="file://$PROJECT_DIR$/tokenizer_smote/tokenizer_smote.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
-          <caret line="48" column="46" lean-forward="true" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
+          <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="38">
+            <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cleanData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
