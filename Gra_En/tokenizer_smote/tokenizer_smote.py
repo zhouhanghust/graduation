@@ -5,6 +5,7 @@ from keras_preprocessing.sequence import pad_sequences
 from keras_preprocessing.text import Tokenizer
 import numpy as np
 import pickle
+import random
 
 with open("../cuted_unbalanced_data/texts.pkl", 'rb') as f:
     texts = pickle.load(f)
@@ -28,6 +29,15 @@ with open("../cuted_unbalanced_data/label.pkl", 'rb') as f:
 
 with open("./tokenizer_en.pkl", 'rb') as f:
     tokenizer = pickle.load(f)
+
+# 随机采样一部分数据来测试
+index = list(range(len(label)))[:100]
+texts = [texts[ind] for ind in index]
+label = [label[ind] for ind in index]
+
+
+
+
 
 sequences = tokenizer.texts_to_sequences(texts)
 
