@@ -1,0 +1,9 @@
+tokenizer
+tokenizer.rar
+**/*.npy
+**/*.txt
+!*.txt
+**/!*.txt
+**/*.gz
+**/*.pkl
+*.pkl
