@@ -7,6 +7,7 @@ import numpy as np
 import pickle
 import random
 
+
 with open("../cuted_unbalanced_data/texts.pkl", 'rb') as f:
     texts = pickle.load(f)
 
@@ -29,19 +30,30 @@ with open("../cuted_unbalanced_data/label.pkl", 'rb') as f:
 
 with open("./tokenizer_en.pkl", 'rb') as f:
     tokenizer = pickle.load(f)
-
+'''
 # 随机采样一部分数据来测试
-index = list(range(len(label)))[:100]
-texts = [texts[ind] for ind in index]
-label = [label[ind] for ind in index]
+neg = np.asarray(label,dtype=np.int32) == 0
+negInd = (np.where(neg))[0]
+posInd = (np.where(np.asarray(label,dtype=np.int32)))[0]
+choInd = list(range(len(posInd)))
+random.shuffle(choInd)
+posInd = posInd[choInd][:len(negInd)]
 
 
+inds = np.concatenate([posInd,negInd],axis=0)
 
 
+newT = []
+newL = []
+for each in inds:
+    newT.append(texts[each])
+    newL.append(label[each])
+print(sum(newL)/len(newL))
 
+'''
 sequences = tokenizer.texts_to_sequences(texts)
 
-word_index = tokenizer.word_index
+# word_index = tokenizer.word_index
 data = pad_sequences(sequences, maxlen=64)
 
 
@@ -52,6 +64,7 @@ smote_enn = SMOTEENN(random_state=0, smote=smote)
 
 X, y = smote_enn.fit_sample(data, label)
 
+'''
 # 将X浮点型变整型
 X = np.asarray(X, np.int32)
 X = X.tolist()
@@ -66,3 +79,14 @@ y = np.array(y)
 
 np.save('../en_ultimately/X.npy',X)
 np.save('../en_ultimately/y.npy',y)
+'''
+with open("../en_ultimately/X.pkl","wb") as handle:
+    pickle.dump(X, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+with open("../en_ultimately/y.pkl","wb") as handle:
+    pickle.dump(y, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+
+
+
+
