@@ -14,6 +14,13 @@ print(y_resampled)
 
 
 
+from imblearn.under_sampling import RandomUnderSampler
+rus = RandomUnderSampler(random_state=0)
+X_resampled, y_resampled = rus.fit_sample(X, y)
 
+print("--------------------------------------")
+print("--------------------------------------")
 
-
+print(X_resampled)
+print("--------------------------------------")
+print(y_resampled)

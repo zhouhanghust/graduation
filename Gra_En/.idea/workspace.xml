@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5323b499-631a-44e1-b159-951e2aba7cf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/doExperiment/stochasticOverSampling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doExperiment/stochasticOverSampling.py" beforeDir="false" afterPath="$PROJECT_DIR$/doExperiment/stochasticOverSampling.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +13,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Gra_En$extractGZdata.coverage" NAME="extractGZdata Coverage Results" MODIFIED="1538971238029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Gra_En$cleanDataMakeToken.coverage" NAME="cleanDataMakeToken Coverage Results" MODIFIED="1539242366431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Gra_En$stochasticOverSampling.coverage" NAME="stochasticOverSampling Coverage Results" MODIFIED="1539501312215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/doExperiment" />
+    <SUITE FILE_PATH="coverage/Gra_En$stochasticOverSampling.coverage" NAME="stochasticOverSampling Coverage Results" MODIFIED="1539501846517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/doExperiment" />
     <SUITE FILE_PATH="coverage/Gra_En$tokenizer_smote.coverage" NAME="tokenizer_smote Coverage Results" MODIFIED="1539422346026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tokenizer_smote" />
     <SUITE FILE_PATH="coverage/Gra_En$justCleanData.coverage" NAME="justCleanData Coverage Results" MODIFIED="1538998577264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/doExperiment" />
     <SUITE FILE_PATH="coverage/Gra_En$cleanData.coverage" NAME="cleanData Coverage Results" MODIFIED="1539227394100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -49,12 +48,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3246" />
+          <entry key="py" value="3249" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3245" />
+          <entry key="Python" value="3248" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -78,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/doExperiment/stochasticOverSampling.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+              <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -410,7 +409,7 @@
     <entry file="file://$PROJECT_DIR$/doExperiment/stochasticOverSampling.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
         </state>
       </provider>
     </entry>
