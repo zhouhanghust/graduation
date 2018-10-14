@@ -6,11 +6,11 @@ from keras_preprocessing.text import Tokenizer
 import numpy as np
 import pickle
 import random
-
-
+from imblearn.over_sampling import RandomOverSampler
+'''
 with open("../cuted_unbalanced_data/texts.pkl", 'rb') as f:
     texts = pickle.load(f)
-
+'''
 with open("../cuted_unbalanced_data/label.pkl", 'rb') as f:
     label = pickle.load(f)
 
@@ -27,9 +27,10 @@ with open("../cuted_unbalanced_data/label.pkl", 'rb') as f:
     
     
 #----------------------------
-
+'''
 with open("./tokenizer_en.pkl", 'rb') as f:
     tokenizer = pickle.load(f)
+'''
 '''
 # 随机采样一部分数据来测试
 neg = np.asarray(label,dtype=np.int32) == 0
@@ -51,18 +52,29 @@ for each in inds:
 print(sum(newL)/len(newL))
 
 '''
+'''
 sequences = tokenizer.texts_to_sequences(texts)
 
 # word_index = tokenizer.word_index
 data = pad_sequences(sequences, maxlen=64)
 
+with open("./data_pad.pkl","wb") as handle:
+    pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
 
 smote_k_neighbors = 5
 smote = SMOTE(k_neighbors=smote_k_neighbors)
 smote_enn = SMOTEENN(random_state=0, smote=smote)
+'''
+with open("./data_pad.pkl","rb") as f:
+    data = pickle.load(f)
 
 
-X, y = smote_enn.fit_sample(data, label)
+ros = RandomOverSampler(random_state=0)
+X, y = ros.fit_sample(data, label)
+
+
+# X, y = smote_enn.fit_sample(data, label)
 
 '''
 # 将X浮点型变整型

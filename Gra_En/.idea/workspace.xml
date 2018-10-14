@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5323b499-631a-44e1-b159-951e2aba7cf8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/doExperiment/stochasticOverSampling.py" beforeDir="false" afterPath="$PROJECT_DIR$/doExperiment/stochasticOverSampling.py" afterDir="false" />
-    </list>
+    <list default="true" id="5323b499-631a-44e1-b159-951e2aba7cf8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,11 +59,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tokenizer_smote/tokenizer_smote.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1710">
-              <caret line="90" selection-start-line="90" selection-end-line="90" />
+            <state relative-caret-position="277">
+              <caret line="69" column="14" lean-forward="true" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -73,7 +71,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/doExperiment/stochasticOverSampling.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
@@ -149,7 +147,7 @@
             <path>
               <item name="Gra_En" type="b2602c69:ProjectViewProjectNode" />
               <item name="Gra_En" type="462c0819:PsiDirectoryNode" />
-              <item name="doExperiment" type="462c0819:PsiDirectoryNode" />
+              <item name="tokenizer_smote" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -320,12 +318,12 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19722222" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19722222" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3149236" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3149236" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3983549" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -386,16 +384,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tokenizer_smote/tokenizer_smote.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="90" selection-start-line="90" selection-end-line="90" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cleanData.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -410,6 +398,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tokenizer_smote/tokenizer_smote.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="69" column="14" lean-forward="true" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
