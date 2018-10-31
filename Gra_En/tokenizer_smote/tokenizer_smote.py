@@ -6,42 +6,31 @@ from keras_preprocessing.text import Tokenizer
 import numpy as np
 import pickle
 import random
-from imblearn.over_sampling import RandomOverSampler
-'''
+# from imblearn.over_sampling import RandomOverSampler
+
+
 with open("../cuted_unbalanced_data/texts.pkl", 'rb') as f:
     texts = pickle.load(f)
-'''
+
 with open("../cuted_unbalanced_data/label.pkl", 'rb') as f:
     label = pickle.load(f)
 
-
-# tokenizer = Tokenizer(num_words=None)
-# tokenizer.fit_on_texts(texts)
-# sequences = tokenizer.texts_to_sequences(texts)
-#
-# word_index = tokenizer.word_index
-#
-# with open("./tokenizer_en.pkl", 'wb') as handle:
-#     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
-    
-    
-    
 #----------------------------
-'''
-with open("./tokenizer_en.pkl", 'rb') as f:
-    tokenizer = pickle.load(f)
-'''
-'''
-# 随机采样一部分数据来测试
+
+
+# 随机采样一部分数据
 neg = np.asarray(label,dtype=np.int32) == 0
 negInd = (np.where(neg))[0]
 posInd = (np.where(np.asarray(label,dtype=np.int32)))[0]
-choInd = list(range(len(posInd)))
-random.shuffle(choInd)
-posInd = posInd[choInd][:len(negInd)]
+choInd_pos = list(range(len(posInd)))
+choInd_neg = list(range(len(negInd)))
+random.shuffle(choInd_pos)
+random.shuffle(choInd_neg)
+posInd = posInd[choInd_pos][:5500]
+negInd = negInd[choInd_neg][:5500]
 
 
-inds = np.concatenate([posInd,negInd],axis=0)
+inds = np.concatenate([posInd, negInd], axis=0)
 
 
 newT = []
@@ -49,54 +38,44 @@ newL = []
 for each in inds:
     newT.append(texts[each])
     newL.append(label[each])
+print(len(newL))
 print(sum(newL)/len(newL))
 
-'''
-'''
-sequences = tokenizer.texts_to_sequences(texts)
+tokenizer = Tokenizer(num_words=None)
+tokenizer.fit_on_texts(newT)
+sequences = tokenizer.texts_to_sequences(newT)
 
-# word_index = tokenizer.word_index
+word_index = tokenizer.word_index
+
+with open("./tokenizer_en.pkl", 'wb') as handle:
+    pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+
+'''
+
+with open("./tokenizer_en.pkl", 'rb') as f:
+    tokenizer = pickle.load(f)
+'''
+
 data = pad_sequences(sequences, maxlen=64)
+print(type(data))
+# with open("./data_pad.pkl","wb") as handle:
+#     pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-with open("./data_pad.pkl","wb") as handle:
-    pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
-
-
-smote_k_neighbors = 5
-smote = SMOTE(k_neighbors=smote_k_neighbors)
-smote_enn = SMOTEENN(random_state=0, smote=smote)
 '''
 with open("./data_pad.pkl","rb") as f:
     data = pickle.load(f)
-
-
-ros = RandomOverSampler(random_state=0)
-X, y = ros.fit_sample(data, label)
-
-
-# X, y = smote_enn.fit_sample(data, label)
-
 '''
-# 将X浮点型变整型
-X = np.asarray(X, np.int32)
-X = X.tolist()
 
-print("-------------------------------------")
-print(len(y))  # 11811
-print(y.sum())  # 5438
-print("-------------------------------------")
+# ros = RandomOverSampler(random_state=0)
+# X, y = ros.fit_sample(data, label)
 
-X = np.array(X)
-y = np.array(y)
 
-np.save('../en_ultimately/X.npy',X)
-np.save('../en_ultimately/y.npy',y)
-'''
 with open("../en_ultimately/X.pkl","wb") as handle:
-    pickle.dump(X, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 with open("../en_ultimately/y.pkl","wb") as handle:
-    pickle.dump(y, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    pickle.dump(newL, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 
 
