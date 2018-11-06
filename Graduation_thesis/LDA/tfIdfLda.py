@@ -10,10 +10,10 @@ import pandas as pd
 import math
 import os
 
-with open('../cutted_umbalanced_data/cutted_umbalanced_data.pkl','rb') as f:
+with open('../cutted_umbalanced_data/cutted_umbalanced_data_POS.pkl','rb') as f:
     data = pickle.load(f)
 
-data = data.content
+data = data.content_pos
 result = []
 for each in data:
     result.append(each.split())
@@ -43,50 +43,10 @@ def tfIdfLda(data,num_topics,iterations,workers,middatafolder):
     #save lda_model
     lda_multi.save(middatafolder + 'lda_tfidf_%s.model'%num_topics)
 
-    '''
-    thetas = [lda_multi[c] for c in corpus_tfidf]
-    font = FontProperties(fname="simhei.ttf", size=18)
-    
-    
-    # plot numOfDocAndTopic
-    lst = []
-    for each in thetas:
-        temp = sorted(each, key=lambda x: x[1])
-        lst.append(str(temp[-1][0]))
-    se = pd.DataFrame({'data':lst})
-    var = se.groupby('data').apply(len)
-
-    var.plot(kind='bar')
-    plt.ylabel('文档数',fontproperties=font)
-    plt.xlabel('主题数',fontproperties=font)
-    plt.show()
-    # plt.tight_layout()
-    # plt.savefig('./pic_idf.png',dpi=250)
-    
-
-    topic_detail = lda_multi.print_topics(num_topics=num_topics, num_words=15)
-    doc_lda = lda_multi.get_document_topics(corpus_tfidf)
-
-
-    def get_document_topic(doc_lda):
-        index = -1
-        temp = 0
-        for item in doc_lda:
-            if temp < item[1] :
-                index = item[0]
-                temp = item[1]
-        return index
-
-
-    topic_pre=[] # 得到corpus中每篇文档对应的主题编号
-    for each in doc_lda:
-        index = get_document_topic(each)
-        topic_pre.append(index)
-
-    '''
-
 
 if __name__ == "__main__":
     middatafolder = "./ldamodel"+os.sep
     for i in range(20):
         tfIdfLda(data,i+1,6000,1,middatafolder)
+        print("the %sth model has been finished!"%(i+1))
+
