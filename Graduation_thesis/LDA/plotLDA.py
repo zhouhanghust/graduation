@@ -60,3 +60,5 @@ for each in doc_lda:
     index = get_document_topic(each)
     topic_pre.append(index)
 
+with open("../cutted_umbalanced_data/topicLst.pkl","wb") as f:
+    pickle.dump(topic_pre, f, pickle.HIGHEST_PROTOCOL)
