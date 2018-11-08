@@ -31,4 +31,5 @@ plt.legend(fontsize=10)
 plt.show()
 
 
-
+# plt.tight_layout()
+# plt.savefig('./pic_loss.png',dpi=250)
