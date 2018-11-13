@@ -3,8 +3,8 @@ import pickle
 from imblearn.combine import SMOTEENN
 from imblearn.over_sampling import SMOTE
 import keras
-from keras_preprocessing.sequence import pad_sequences
-from keras_preprocessing.text import Tokenizer
+from keras.preprocessing.sequence import pad_sequences
+from keras.preprocessing.text import Tokenizer
 import numpy as np
 
 with open('../cutted_umbalanced_data/cutted_umbalanced_data.pkl', 'rb') as f:

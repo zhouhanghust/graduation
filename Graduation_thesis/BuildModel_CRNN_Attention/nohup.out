@@ -1,0 +1,30 @@
+2018-10-29 00:13:45.336928: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-10-29 00:14:05.069671: W tensorflow/core/framework/allocator.cc:108] Allocation of 1125261312 exceeds 10% of system memory.
+2018-10-29 00:14:22.491028: W tensorflow/core/framework/allocator.cc:108] Allocation of 1125261312 exceeds 10% of system memory.
+2018-10-29 00:14:39.979330: W tensorflow/core/framework/allocator.cc:108] Allocation of 1125261312 exceeds 10% of system memory.
+2018-10-29 00:14:57.457568: W tensorflow/core/framework/allocator.cc:108] Allocation of 1125261312 exceeds 10% of system memory.
+2018-10-29 00:15:29.058214: W tensorflow/core/framework/allocator.cc:108] Allocation of 1125261312 exceeds 10% of system memory.
+]0;IPython: Graduation_thesis/BuildModel_CRNN_Attention17
+the 0th epoch has been done!
+the 1th epoch has been done!
+the 2th epoch has been done!
+the 3th epoch has been done!
+the 4th epoch has been done!
+the 5th epoch has been done!
+the 6th epoch has been done!
+the 7th epoch has been done!
+the 8th epoch has been done!
+the 9th epoch has been done!
+the 10th epoch has been done!
+the 11th epoch has been done!
+the 12th epoch has been done!
+the 13th epoch has been done!
+the 14th epoch has been done!
+the 15th epoch has been done!
+the 16th epoch has been done!
+the 17th epoch has been done!
+the 18th epoch has been done!
+the 19th epoch has been done!
+Using TensorFlow backend.
+/home/zhouhang/anaconda3/lib/python3.5/site-packages/sklearn/preprocessing/_encoders.py:326: DeprecationWarning: Passing 'n_values' is deprecated in version 0.20 and will be removed in 0.22. You can use the 'categories' keyword instead. 'n_values=n' corresponds to 'categories=[range(n)]'.
+  warnings.warn(msg, DeprecationWarning)
