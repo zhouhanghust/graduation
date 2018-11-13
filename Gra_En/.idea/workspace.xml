@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5323b499-631a-44e1-b159-951e2aba7cf8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/tokenizer_smote/tokenizer_smote.py" beforeDir="false" afterPath="$PROJECT_DIR$/tokenizer_smote/tokenizer_smote.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BuildModel/crnnAttention.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +14,8 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Gra_En$extractGZdata.coverage" NAME="extractGZdata Coverage Results" MODIFIED="1538971238029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Gra_En$cleanDataMakeToken.coverage" NAME="cleanDataMakeToken Coverage Results" MODIFIED="1539242366431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Gra_En$tokenizer_smote.coverage" NAME="tokenizer_smote Coverage Results" MODIFIED="1539334670999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tokenizer_smote" />
+    <SUITE FILE_PATH="coverage/Gra_En$stochasticOverSampling.coverage" NAME="stochasticOverSampling Coverage Results" MODIFIED="1539501846517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/doExperiment" />
+    <SUITE FILE_PATH="coverage/Gra_En$tokenizer_smote.coverage" NAME="tokenizer_smote Coverage Results" MODIFIED="1539422346026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tokenizer_smote" />
     <SUITE FILE_PATH="coverage/Gra_En$justCleanData.coverage" NAME="justCleanData Coverage Results" MODIFIED="1538998577264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/doExperiment" />
     <SUITE FILE_PATH="coverage/Gra_En$cleanData.coverage" NAME="cleanData Coverage Results" MODIFIED="1539227394100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Gra_En$cleanAndClear.coverage" NAME="cleanAndClear Coverage Results" MODIFIED="1539227097509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/doExperiment" />
@@ -22,37 +24,37 @@
     <session id="-1321251656">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="3" />
-          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.5" value="3" />
+          <entry key="project.open.time.6" value="4" />
+          <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="md" value="1" />
-          <entry key="py" value="13" />
+          <entry key="py" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="1" />
-          <entry key="Python" value="13" />
+          <entry key="Python" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2314" />
+          <entry key="py" value="3273" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2313" />
+          <entry key="Python" value="3272" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -60,14 +62,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tokenizer_smote/tokenizer_smote.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="766">
+              <caret line="81" column="14" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BuildModel/crnnAttention.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/doExperiment/stochasticOverSampling.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -106,6 +126,8 @@
         <option value="$PROJECT_DIR$/cleanDataMakeToken.py" />
         <option value="$PROJECT_DIR$/cleanData.py" />
         <option value="$PROJECT_DIR$/tokenizer_smote/tokenizer_smote.py" />
+        <option value="$PROJECT_DIR$/doExperiment/stochasticOverSampling.py" />
+        <option value="$PROJECT_DIR$/BuildModel/crnnAttention.py" />
       </list>
     </option>
   </component>
@@ -115,11 +137,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="160" />
-    <option name="y" value="56" />
-    <option name="width" value="1280" />
-    <option name="height" value="712" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="48" />
+    <option name="y" value="23" />
+    <option name="width" value="1350" />
+    <option name="height" value="813" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -137,7 +159,7 @@
             <path>
               <item name="Gra_En" type="b2602c69:ProjectViewProjectNode" />
               <item name="Gra_En" type="462c0819:PsiDirectoryNode" />
-              <item name="tokenizer_smote" type="462c0819:PsiDirectoryNode" />
+              <item name="BuildModel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -148,6 +170,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
@@ -164,7 +187,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.tokenizer_smote">
+  <component name="RunManager" selected="Python.stochasticOverSampling">
     <configuration name="cleanAndClear" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Gra_En" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -231,7 +254,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="justCleanData" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="stochasticOverSampling" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Gra_En" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -244,7 +267,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/doExperiment/justCleanData.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/doExperiment/stochasticOverSampling.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -277,18 +300,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.cleanData" />
-      <item itemvalue="Python.justCleanData" />
       <item itemvalue="Python.cleanAndClear" />
       <item itemvalue="Python.cleanDataMakeToken" />
       <item itemvalue="Python.tokenizer_smote" />
+      <item itemvalue="Python.stochasticOverSampling" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.stochasticOverSampling" />
         <item itemvalue="Python.tokenizer_smote" />
         <item itemvalue="Python.cleanDataMakeToken" />
         <item itemvalue="Python.cleanData" />
         <item itemvalue="Python.cleanAndClear" />
-        <item itemvalue="Python.justCleanData" />
       </list>
     </recent_temporary>
   </component>
@@ -306,16 +329,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="160" y="56" width="1280" height="712" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.221875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19722222" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40873635" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39937598" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3149236" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3983549" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -377,11 +399,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tokenizer_smote/tokenizer_smote.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="766">
+          <caret line="81" column="14" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doExperiment/stochasticOverSampling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -392,6 +421,13 @@
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BuildModel/crnnAttention.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>

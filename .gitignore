@@ -7,3 +7,14 @@ tokenizer.rar
 **/*.gz
 **/*.pkl
 *.pkl
+*.ttf
+**/*.ttf
+*.TTF
+**/*.TTF
+Graduation_thesis/BuildModel/model_save/*.*
+Graduation_thesis/BuildModel_RNN/model_save/*.*
+Graduation_thesis/BuildModel_CRNN_Attention/model_save/*.*
+Gra_En/BuildModel/model_save/*.*
+Gra_En/BuildModel_RNN/model_save/*.*
+Gra_En/BuildModel_CRNN_Attention/model_save/*.*
+Graduation_thesis/LDA/ldamodel/*.*
