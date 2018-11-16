@@ -12,8 +12,8 @@ with open('../cutted_umbalanced_data/cutted_umbalanced_data.pkl', 'rb') as f:
 
 data = df['content'].tolist()
 label = df['score'].tolist()
+print(len(label)) #9063
 
-'''
 tokenizer = Tokenizer(num_words=None)
 tokenizer.fit_on_texts(data)
 sequences = tokenizer.texts_to_sequences(data)
@@ -30,6 +30,7 @@ with open("./tokenizer.pkl", 'rb') as f:
 sequences = tokenizer.texts_to_sequences(data)
 
 word_index = tokenizer.word_index
+'''
 data = pad_sequences(sequences, maxlen=64)
 
 
@@ -45,8 +46,8 @@ X = np.asarray(X, np.int32)
 X = X.tolist()
 
 print("-------------------------------------")
-print(len(y))  # 11811
-print(y.sum())  # 5438
+print(len(y))  # 15824
+print(y.sum())  # 7282
 print("-------------------------------------")
 
 X = np.array(X)
