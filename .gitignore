@@ -18,3 +18,11 @@ Gra_En/BuildModel/model_save/*.*
 Gra_En/BuildModel_RNN/model_save/*.*
 Gra_En/BuildModel_CRNN_Attention/model_save/*.*
 Graduation_thesis/LDA/ldamodel/*.*
+
+Graduation_thesis/BuildModel/tb/*.*
+Graduation_thesis/BuildModel_RNN/tb/*.*
+Graduation_thesis/BuildModel_CRNN_Attention/tb/*.*
+
+Gra_En/BuildModel/tb/*.*
+Gra_En/BuildModel_RNN/tb/*.*
+Gra_En/BuildModel_CRNN_Attention/tb/*.*

@@ -81,7 +81,7 @@ df['content_ori'] = df[['content']].applymap(chinese_word_extraction)
 def filter_line(line):
     tmp = line.split(" ")
     count = len(tmp)
-    if count < 6:
+    if count < 3:
         return False
     return True
 

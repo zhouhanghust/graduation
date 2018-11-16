@@ -61,7 +61,7 @@ df['score'] = (df['score'] > 3).map(int)
 def filter_line(line):
     tmp = line.split(" ")
     count = len(tmp)
-    if count < 6:
+    if count < 3:
         return False
     return True
 
