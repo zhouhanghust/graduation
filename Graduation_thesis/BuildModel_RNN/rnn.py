@@ -8,7 +8,7 @@ from AttentionL import AttentionLayer
 import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
-
+K.set_learning_phase(1)
 
 def load_data():
 
@@ -79,33 +79,48 @@ init_op = tf.global_variables_initializer()
 saver = tf.train.Saver()
 
 with tf.Session() as sess:
-    merge_summary_loss = tf.summary.merge([tf.get_collection(tf.GraphKeys.SUMMARIES, 'loss')])
-    merge_summary_accuracy = tf.summary.merge([tf.get_collection(tf.GraphKeys.SUMMARIES, 'accuracy')])
-    summary_writer = tf.summary.FileWriter('./tb/', graph=sess.graph)
+#    merge_summary_loss = tf.summary.merge([tf.get_collection(tf.GraphKeys.SUMMARIES, 'loss')])
+#    merge_summary_accuracy = tf.summary.merge([tf.get_collection(tf.GraphKeys.SUMMARIES, 'accuracy')])
+#    summary_writer = tf.summary.FileWriter('./tb/', graph=sess.graph)
     K.set_session(sess)
     sess.run(init_op)
-    epoch = 18
-    batch_size = 512
+    epoch = 10
+    batch_size = 128
     batches = len(y_train) // batch_size
     print(batches)
+    inbatch_size = 1500
+    inbatches = len(y_test) // inbatch_size
     loss_lst = [[],[]]
     acc_lst = [[],[]]
     for i in range(epoch):
         for j in range(batches):
             sess.run(train_op,
                 feed_dict={wordsindex:X_train[j*batch_size:(j+1)*batch_size,:],labels_oh:y_train_ohe[j*batch_size:(j+1)*batch_size,:]})
-            summary_loss = sess.run(merge_summary_loss,feed_dict={wordsindex:X_train,labels_oh:y_train_ohe})
-            summary_accuracy = sess.run(merge_summary_accuracy,feed_dict={wordsindex:X_train,labels:y_train})
-            summary_writer.add_summary(summary_loss, i*batches+j)
-            summary_writer.add_summary(summary_accuracy, i * batches + j)
-            loss_lst[0].append(sess.run(loss,feed_dict={wordsindex:X_train,labels_oh:y_train_ohe}))
-            acc_lst[0].append(sess.run(accuracy, feed_dict={wordsindex:X_train,labels:y_train}))
-            loss_lst[1].append(sess.run(loss,feed_dict={wordsindex:X_test,labels_oh:y_test_ohe}))
-            acc_lst[1].append(sess.run(accuracy, feed_dict={wordsindex:X_test,labels:y_test}))
+#            summary_loss = sess.run(merge_summary_loss,feed_dict={wordsindex:X_train,labels_oh:y_train_ohe})
+#            summary_accuracy = sess.run(merge_summary_accuracy,feed_dict={wordsindex:X_train,labels:y_train})
+#            summary_writer.add_summary(summary_loss, i*batches+j)
+#            summary_writer.add_summary(summary_accuracy, i * batches + j)
+            temp_loss0 = []            
+            temp_loss1 = []
+            temp_acc0 = []
+            temp_acc1 = []
 
+
+            for jj in range(batches):
+                temp_loss0.append(batch_size*sess.run(loss,feed_dict={wordsindex:X_train[jj*batch_size:(jj+1)*batch_size,:],labels_oh:y_train_ohe[jj*batch_size:(jj+1)*batch_size,:]}))
+                temp_acc0.append(batch_size*sess.run(accuracy, feed_dict={wordsindex:X_train[jj*batch_size:(jj+1)*batch_size,:],labels:y_train[jj*batch_size:(jj+1)*batch_size]}))
+
+
+            for jj in range(inbatches):
+                temp_loss1.append(inbatch_size*sess.run(loss,feed_dict={wordsindex:X_test[jj*inbatch_size:(jj+1)*inbatch_size,:],labels_oh:y_test_ohe[jj*inbatch_size:(jj+1)*inbatch_size,:]}))
+                temp_acc1.append(batch_size*sess.run(accuracy, feed_dict={wordsindex:X_test[jj*batch_size:(jj+1)*batch_size,:],labels:y_test[jj*batch_size:(jj+1)*batch_size]}))
+            loss_lst[0].append(sum(temp_loss0)/(batches*batch_size))
+            loss_lst[1].append(sum(temp_loss1)/(inbatches*inbatch_size))
+            acc_lst[0].append(sum(temp_acc0)/(batches*batch_size))
+            acc_lst[1].append(sum(temp_acc1)/(inbatches*inbatch_size))
         print("the %sth epoch has been done!" % i)
     saver.save(sess,"model_save/model.ckpt",global_step=1024)
-    summary_writer.close()
+#    summary_writer.close()
     with open("./LossAcc/loss.pkl","wb") as handle:
         pickle.dump(loss_lst,handle,protocol=pickle.HIGHEST_PROTOCOL)
 
