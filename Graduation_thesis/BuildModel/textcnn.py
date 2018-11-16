@@ -7,7 +7,8 @@ from keras import backend as K
 import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
-
+from sklearn.preprocessing import OneHotEncoder
+K.set_learning_phase(1)
 
 def load_data():
 
@@ -88,8 +89,8 @@ with tf.Session() as sess:
     summary_writer = tf.summary.FileWriter('./tb/', graph=sess.graph)
     K.set_session(sess)
     sess.run(init_op)
-    epoch = 30
-    batch_size = 512
+    epoch = 10
+    batch_size = 256
     batches = len(y_train) // batch_size
     print(batches)
     loss_lst = [[],[]]

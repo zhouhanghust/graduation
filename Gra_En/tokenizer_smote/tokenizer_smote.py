@@ -1,5 +1,5 @@
-from imblearn.combine import SMOTEENN
-from imblearn.over_sampling import SMOTE
+# from imblearn.combine import SMOTEENN
+# from imblearn.over_sampling import SMOTE
 import keras
 from keras_preprocessing.sequence import pad_sequences
 from keras_preprocessing.text import Tokenizer
@@ -26,8 +26,8 @@ choInd_pos = list(range(len(posInd)))
 choInd_neg = list(range(len(negInd)))
 random.shuffle(choInd_pos)
 random.shuffle(choInd_neg)
-posInd = posInd[choInd_pos][:5500]
-negInd = negInd[choInd_neg][:5500]
+posInd = posInd[choInd_pos][:30000]
+negInd = negInd[choInd_neg][:30000]
 
 
 inds = np.concatenate([posInd, negInd], axis=0)
