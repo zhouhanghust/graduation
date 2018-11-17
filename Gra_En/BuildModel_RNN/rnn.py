@@ -87,11 +87,11 @@ with tf.Session() as sess:
     K.set_session(sess)
     sess.run(init_op)
     epoch = 1
-    batch_size = 4096
+    batch_size = 2048
     batches = len(y_train) // batch_size
     print(batches)
 
-    inbatch_size = 4096
+    inbatch_size = 2048
     inbatches_test = len(y_test) // inbatch_size
     inbatches_train = len(y_train) // inbatch_size
 
