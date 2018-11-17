@@ -89,7 +89,8 @@ with tf.Session() as sess:
     batches = len(y_train) // batch_size
     print(batches)
     inbatch_size = 1500
-    inbatches = len(y_test) // inbatch_size
+    inbatches_test = len(y_test) // inbatch_size
+    inbatches_train = len(y_train) // inbatch_size
     loss_lst = [[],[]]
     acc_lst = [[],[]]
     for i in range(epoch):
@@ -105,19 +106,22 @@ with tf.Session() as sess:
             temp_acc0 = []
             temp_acc1 = []
 
+            for jj in range(inbatches_train):
+                temp_loss0.append(inbatch_size*sess.run(loss,feed_dict={wordsindex:X_train[jj*inbatch_size:(jj+1)*inbatch_size,:],labels_oh:y_train_ohe[jj*inbatch_size:(jj+1)*inbatch_size,:]}))
+                temp_acc0.append(inbatch_size*sess.run(accuracy, feed_dict={wordsindex:X_train[jj*inbatch_size:(jj+1)*inbatch_size,:],labels:y_train[jj*inbatch_size:(jj+1)*inbatch_size]}))
 
-            for jj in range(batches):
-                temp_loss0.append(batch_size*sess.run(loss,feed_dict={wordsindex:X_train[jj*batch_size:(jj+1)*batch_size,:],labels_oh:y_train_ohe[jj*batch_size:(jj+1)*batch_size,:]}))
-                temp_acc0.append(batch_size*sess.run(accuracy, feed_dict={wordsindex:X_train[jj*batch_size:(jj+1)*batch_size,:],labels:y_train[jj*batch_size:(jj+1)*batch_size]}))
 
-
-            for jj in range(inbatches):
+            for jj in range(inbatches_test):
                 temp_loss1.append(inbatch_size*sess.run(loss,feed_dict={wordsindex:X_test[jj*inbatch_size:(jj+1)*inbatch_size,:],labels_oh:y_test_ohe[jj*inbatch_size:(jj+1)*inbatch_size,:]}))
-                temp_acc1.append(batch_size*sess.run(accuracy, feed_dict={wordsindex:X_test[jj*batch_size:(jj+1)*batch_size,:],labels:y_test[jj*batch_size:(jj+1)*batch_size]}))
-            loss_lst[0].append(sum(temp_loss0)/(batches*batch_size))
-            loss_lst[1].append(sum(temp_loss1)/(inbatches*inbatch_size))
-            acc_lst[0].append(sum(temp_acc0)/(batches*batch_size))
-            acc_lst[1].append(sum(temp_acc1)/(inbatches*inbatch_size))
+                temp_acc1.append(inbatch_size*sess.run(accuracy, feed_dict={wordsindex:X_test[jj*inbatch_size:(jj+1)*inbatch_size,:],labels:y_test[jj*inbatch_size:(jj+1)*inbatch_size]}))
+
+
+            loss_lst[0].append(sum(temp_loss0)/(inbatches_train*inbatch_size))
+            loss_lst[1].append(sum(temp_loss1)/(inbatches_test*inbatch_size))
+            acc_lst[0].append(sum(temp_acc0)/(inbatches_train*inbatch_size))
+            acc_lst[1].append(sum(temp_acc1)/(inbatches_test*inbatch_size))
+
+
         print("the %sth epoch has been done!" % i)
     saver.save(sess,"model_save/model.ckpt",global_step=1024)
 #    summary_writer.close()
