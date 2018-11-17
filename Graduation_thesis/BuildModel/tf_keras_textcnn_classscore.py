@@ -61,16 +61,21 @@ with tf.name_scope("NN"):
 
 
 with tf.name_scope('predict'):
-    match = tf.argmax(predict, axis=1)
+    pred = tf.argmax(predict, axis=1)
+    match = tf.equal(tf.argmax(predict, axis=1), labels)
+    accuracy = tf.reduce_mean(tf.cast(match, tf.float32))
 
 saver = tf.train.Saver()
 
 
 with tf.Session() as sess:
     K.set_session(sess)
-    saver.restore(sess, "./model_save/model.ckpt-1024")
+    saver.restore(sess, "./model_save/model.ckpt-60")
 
-    match_ = sess.run(match, feed_dict={wordsindex: X_test})
-    print(sum(match_)/len(match_))
+    pred_ = sess.run(pred, feed_dict={wordsindex: X_test})
+    accuracy_ = sess.run(accuracy, feed_dict={wordsindex: X_test,labels:y_test})
+    print(sum(pred_)/len(pred_))
+    print("-----acc-----")
+    print(accuracy_)
 
 

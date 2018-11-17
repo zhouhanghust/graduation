@@ -2,10 +2,10 @@ import pickle
 import matplotlib.pyplot as plt
 
 
-with open("../BuildModel/LossAcc/loss.pkl","rb") as f:
+with open("../BuildModel_CRNN_Attention/LossAcc/loss.pkl","rb") as f:
     loss_lst = pickle.load(f)
 
-with open("../BuildModel/LossAcc/acc.pkl","rb") as f:
+with open("../BuildModel_CRNN_Attention/LossAcc/acc.pkl","rb") as f:
     acc_lst = pickle.load(f)
 
 
@@ -17,7 +17,7 @@ plt.xlim(0, max(len(loss_lst[0]), len(loss_lst[1])))
 plt.xlabel('iteration')
 plt.ylabel('loss')
 plt.legend(fontsize=10)
-plt.show()
+plt.savefig('../BuildModel_CRNN_Attention/loss.png',dpi=250)
 
 
 plt.figure(1)
@@ -28,7 +28,7 @@ plt.xlim(0, max(len(acc_lst[0]), len(acc_lst[1])))
 plt.xlabel('iteration')
 plt.ylabel('accuracy')
 plt.legend(fontsize=10)
-plt.show()
+plt.savefig('../BuildModel_CRNN_Attention/acc.png',dpi=250)
 
 
 # plt.tight_layout()
