@@ -80,7 +80,7 @@ with tf.name_scope("train"):
 
 
 init_op = tf.global_variables_initializer()
-saver = tf.train.Saver()
+saver = tf.train.Saver(max_to_keep=100)
 
 
 with tf.Session() as sess:
@@ -89,7 +89,7 @@ with tf.Session() as sess:
 #    summary_writer = tf.summary.FileWriter('./tb/', graph=sess.graph)
     K.set_session(sess)
     sess.run(init_op)
-    epoch = 10
+    epoch = 6
     batch_size = 256
     batches = len(y_train) // batch_size
     print(batches)

@@ -81,7 +81,7 @@ with tf.name_scope("train"):
 
 
 init_op = tf.global_variables_initializer()
-saver = tf.train.Saver()
+saver = tf.train.Saver(max_to_keep=100)
 
 
 with tf.Session() as sess:
@@ -90,11 +90,11 @@ with tf.Session() as sess:
 #    summary_writer = tf.summary.FileWriter('./tb/', graph=sess.graph)
     K.set_session(sess)
     sess.run(init_op)
-    epoch = 10
-    batch_size = 256
+    epoch = 1
+    batch_size = 4096
     batches = len(y_train) // batch_size
     print(batches)
-    inbatch_size = 1500
+    inbatch_size = 4096
     inbatches_test = len(y_test) // inbatch_size
     inbatches_train = len(y_train) // inbatch_size
 
@@ -139,7 +139,7 @@ with tf.Session() as sess:
             remainder = (iterations) % 30
             if remainder == 0:
                 saver.save(sess, "model_save/model.ckpt", global_step=iterations)
-
+            print("the %sth batches has been done!" % iterations)
         print("the %sth epoch has been done!" % i)
 
 #    summary_writer.close()

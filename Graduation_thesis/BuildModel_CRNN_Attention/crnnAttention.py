@@ -8,12 +8,12 @@ from AttentionL import AttentionLayer
 import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
-
+K.set_learning_phase(1)
 
 def load_data():
 
-    x_data = np.load('../Chinese_ultimately/X.npy')[:20000, :]
-    y_data = np.load('../Chinese_ultimately/y.npy')[:20000]
+    x_data = np.load('../Chinese_ultimately/X.npy')
+    y_data = np.load('../Chinese_ultimately/y.npy')
 
     X_train, X_test, y_train, y_test = train_test_split(
             x_data, y_data, random_state=42, test_size=0.25)
@@ -75,7 +75,7 @@ with tf.name_scope("train"):
 
 
 init_op = tf.global_variables_initializer()
-saver = tf.train.Saver()
+saver = tf.train.Saver(max_to_keep=100)
 
 with tf.Session() as sess:
 #    merge_summary_loss = tf.summary.merge([tf.get_collection(tf.GraphKeys.SUMMARIES, 'loss')])
@@ -83,8 +83,8 @@ with tf.Session() as sess:
 #    summary_writer = tf.summary.FileWriter('./tb/', graph=sess.graph)
     K.set_session(sess)
     sess.run(init_op)
-    epoch = 20
-    batch_size = 512
+    epoch = 6
+    batch_size = 256
     batches = len(y_train) // batch_size
     print(batches)
     inbatch_size = 1500

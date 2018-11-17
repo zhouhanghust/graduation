@@ -26,8 +26,8 @@ choInd_pos = list(range(len(posInd)))
 choInd_neg = list(range(len(negInd)))
 random.shuffle(choInd_pos)
 random.shuffle(choInd_neg)
-posInd = posInd[choInd_pos][:30000]
-negInd = negInd[choInd_neg][:30000]
+posInd = posInd[choInd_pos][:500000]
+negInd = negInd[choInd_neg][:500000]
 
 
 inds = np.concatenate([posInd, negInd], axis=0)
