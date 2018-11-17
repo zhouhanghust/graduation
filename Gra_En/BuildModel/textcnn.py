@@ -139,7 +139,7 @@ with tf.Session() as sess:
             remainder = (iterations) % 30
             if remainder == 0:
                 saver.save(sess, "model_save/model.ckpt", global_step=iterations)
-            if iterations==150:
+            if iterations == 150:
                 break
             print("the %sth batches has been done!" % iterations)
         print("the %sth epoch has been done!" % i)
