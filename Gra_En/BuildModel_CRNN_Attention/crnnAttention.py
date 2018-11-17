@@ -8,7 +8,7 @@ from AttentionL import AttentionLayer
 import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
-
+K.set_learning_phase(1)
 
 def load_data():
 
@@ -85,11 +85,11 @@ with tf.Session() as sess:
 #    summary_writer = tf.summary.FileWriter('./tb/', graph=sess.graph)
     K.set_session(sess)
     sess.run(init_op)
-    epoch = 20
-    batch_size = 512
+    epoch = 1
+    batch_size = 4096
     batches = len(y_train) // batch_size
     print(batches)
-    inbatch_size = 1500
+    inbatch_size = 4096
     inbatches_test = len(y_test) // inbatch_size
     inbatches_train = len(y_train) // inbatch_size
     loss_lst = [[],[]]
@@ -133,7 +133,7 @@ with tf.Session() as sess:
             remainder = (iterations) % 30
             if remainder == 0:
                 saver.save(sess, "model_save/model.ckpt", global_step=iterations)
-
+            print("the %sth batches has been done!" % iterations)
         print("the %sth epoch has been done!" % i)
 
 #    summary_writer.close()
