@@ -60,14 +60,14 @@ with tf.name_scope("NN"):
 with tf.name_scope('loss'):
     loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(logits=x,labels=labels_oh))
 
-tf.summary.scalar('loss', loss)
+# tf.summary.scalar('loss', loss)
 
 
 with tf.name_scope('accuracy'):
     match = tf.equal(tf.argmax(predict, axis=1), labels)
     accuracy = tf.reduce_mean(tf.cast(match, tf.float32))
 
-tf.summary.scalar('accuracy', accuracy)
+# tf.summary.scalar('accuracy', accuracy)
 
 
 with tf.name_scope("train"):
