@@ -135,9 +135,13 @@ with tf.Session() as sess:
             acc_lst[0].append(sum(temp_acc0) / (inbatches_train * inbatch_size))
             acc_lst[1].append(sum(temp_acc1) / (inbatches_test * inbatch_size))
 
+            iterations = i*batches + j + 1
+            remainder = (iterations) % 30
+            if remainder == 0:
+                saver.save(sess, "model_save/model.ckpt", global_step=iterations)
 
         print("the %sth epoch has been done!" % i)
-    saver.save(sess,"model_save/model.ckpt",global_step=1024)
+
 #    summary_writer.close()
     with open("./LossAcc/loss.pkl","wb") as handle:
         pickle.dump(loss_lst,handle,protocol=pickle.HIGHEST_PROTOCOL)
