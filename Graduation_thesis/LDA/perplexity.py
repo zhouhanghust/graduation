@@ -62,8 +62,10 @@ def showPrep(num_topics,middatafolder):
 if __name__ == '__main__':
     middatafolder = "./ldamodel"+os.sep
     result = []
-    for i in range(20):
+    for i in range(50):
         result.append(showPrep(i+1,middatafolder))
     plt.plot(result)
-    plt.show()
+    plt.xlabel('NumOfTopics')
+    plt.ylabel('Perplexity')
+    plt.savefig('./perplexity.png', dpi=250)
 

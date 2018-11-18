@@ -10,10 +10,9 @@ import pandas as pd
 import math
 import os
 
-with open('../cutted_umbalanced_data/cutted_umbalanced_data_POS.pkl','rb') as f:
+with open('../cutted_umbalanced_data/balanced_data_pos.pkl','rb') as f:
     data = pickle.load(f)
 
-data = data.content_pos
 result = []
 for each in data:
     result.append(each.split())
@@ -46,7 +45,7 @@ def tfIdfLda(data,num_topics,iterations,workers,middatafolder):
 
 if __name__ == "__main__":
     middatafolder = "./ldamodel"+os.sep
-    for i in range(20):
+    for i in range(50):
         tfIdfLda(data,i+1,6000,1,middatafolder)
         print("the %sth model has been finished!"%(i+1))
 

@@ -14,14 +14,14 @@ dictionary = corpora.Dictionary.load(middatafolder + 'dictionary.dictionary')
 # load corpus
 corpus = corpora.MmCorpus(middatafolder + 'corpus.mm')
 # load model
-lda_multi = models.ldamodel.LdaModel.load(middatafolder + 'lda_tfidf_13.model')
+lda_multi = models.ldamodel.LdaModel.load(middatafolder + 'lda_tfidf_32.model')
 
 tfidf = models.TfidfModel(corpus)
 corpus_tfidf = tfidf[corpus]
 
 
 thetas = [lda_multi[c] for c in corpus_tfidf]
-font = FontProperties(fname="simhei.ttf", size=18)
+font = FontProperties(fname="simhei.ttf", size=14)
 
 
 # plot numOfDocAndTopic
@@ -33,14 +33,14 @@ se = pd.DataFrame({'data':lst})
 var = se.groupby('data').apply(len)
 
 var.plot(kind='bar')
-plt.ylabel('文档数',fontproperties=font)
-plt.xlabel('主题数',fontproperties=font)
+plt.ylabel('NumOfDocs',fontproperties=font)
+plt.xlabel('TopicIndex',fontproperties=font)
 plt.show()
 # plt.tight_layout()
 # plt.savefig('./pic_idf.png',dpi=250)
 
 
-topic_detail = lda_multi.print_topics(num_topics=13, num_words=20)
+topic_detail = lda_multi.print_topics(num_topics=32, num_words=20)
 print(topic_detail)
 doc_lda = lda_multi.get_document_topics(corpus_tfidf)
 
