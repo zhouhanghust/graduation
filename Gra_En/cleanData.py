@@ -1,5 +1,5 @@
 import pickle
-from doExperiment.cleanAndClear import clean_text
+from Gra_En.doExperiment.cleanAndClear import clean_text
 
 
 with open("./raw_data/texts.pkl","rb") as f:

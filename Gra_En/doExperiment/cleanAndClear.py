@@ -8,7 +8,7 @@ def stopwordslist(filepath):
 
 
 def clean_text(text):
-    stopwords = stopwordslist('/Users/zhouxiaohang/Downloads/毕业论文/Gra_En/stopwords.txt')
+    stopwords = stopwordslist('/Users/zhouxiaohang/PycharmProjects/Graduation/Gra_En/stopwords.txt')
     words = ' '.join([word.lower() for word in WordPunctTokenizer().tokenize(text) if (len(word) > 1 and word.lower() not in stopwords)])
     pure_text = ''
     for letter in words:

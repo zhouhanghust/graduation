@@ -81,28 +81,34 @@ with tf.Session() as sess:
     inbatch_size = 2048
     inbatches_test = len(y_test) // inbatch_size
 
-    temp_loss1 = []
-    temp_acc1 = []
     temp_pred1 = []
+    predict_prob = []
 
     for jj in range(inbatches_test):
-        temp_loss1.append(inbatch_size * sess.run(loss, feed_dict={
-            wordsindex: X_test[jj * inbatch_size:(jj + 1) * inbatch_size, :],
-            labels_oh: y_test_ohe[jj * inbatch_size:(jj + 1) * inbatch_size, :]}))
-        temp_acc1.append(inbatch_size * sess.run(accuracy, feed_dict={
-            wordsindex: X_test[jj * inbatch_size:(jj + 1) * inbatch_size, :],
-            labels: y_test[jj * inbatch_size:(jj + 1) * inbatch_size]}))
         temp_pred1.extend(sess.run(pred, feed_dict={
             wordsindex: X_test[jj * inbatch_size:(jj + 1) * inbatch_size, :]}))
+        pred_prob = sess.run(predict, feed_dict={wordsindex: X_test[jj * inbatch_size:(jj + 1) * inbatch_size, :]})
+        predict_prob.extend([each[1] for each in pred_prob])
         print("the %sth inbatches has been done! total: %s"%(jj+1,inbatches_test))
 
-    loss_lst = sum(temp_loss1) / (inbatches_test * inbatch_size)
-    acc_lst = sum(temp_acc1) / (inbatches_test * inbatch_size)
+    if (jj+1)*inbatch_size < len(X_test):
+        diff = len(X_test) - (jj+1)*inbatch_size
+        temp_pred1.extend(sess.run(pred, feed_dict={
+            wordsindex: X_test[(jj + 1) * inbatch_size:, :]}))
+        pred_prob = sess.run(predict, feed_dict={wordsindex: X_test[(jj + 1) * inbatch_size:, :]})
+        predict_prob.extend([each[1] for each in pred_prob])
+        print("all of the inbatches has been done! total")
 
     print(sum(temp_pred1)/len(temp_pred1))
-    print("-----acc-----")
-    print(acc_lst)
+    tofile = []
+    tofile.append(temp_pred1)
+    tofile.append(y_test)
+    print(len(tofile[0])/len(tofile[1]))
 
-    print("-----loss-----")
-    print(loss_lst)
+    with open("./predAndy_test.pkl","wb") as f:
+        pickle.dump(tofile, f, pickle.HIGHEST_PROTOCOL)
+
+    predict_prob_label = [predict_prob, y_test]
+    with open("./predict_prob_label.pkl", "wb") as f:
+        pickle.dump(predict_prob_label, f, pickle.HIGHEST_PROTOCOL)
 

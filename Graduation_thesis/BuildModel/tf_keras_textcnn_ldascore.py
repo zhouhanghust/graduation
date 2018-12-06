@@ -28,7 +28,7 @@ print(len(score))
 print(sum(score)/len(score))
 
 data = np.asarray(data)
-feed_data = makeTopicDocToModel(data,topicLst,[3],tokenizer)
+feed_data = makeTopicDocToModel(data,topicLst,[4],tokenizer)
 
 
 word_index = tokenizer.word_index

@@ -33,5 +33,5 @@ if __name__ == "__main__":
     print(len(topicLst))
     print(np.unique(topicLst))
     data = np.asarray(data)
-    print(makeTopicDocToModel(data,topicLst,[2],tokenizer))
+    print(makeTopicDocToModel(data,topicLst,[0],tokenizer))
 

@@ -2,34 +2,37 @@ import pickle
 import matplotlib.pyplot as plt
 
 
+with open("../BuildModel/LossAcc/loss.pkl","rb") as f:
+    loss_lst_cnn = pickle.load(f)
+
+with open("../BuildModel_RNN/LossAcc/loss.pkl","rb") as f:
+    loss_lst_rnn = pickle.load(f)
+
 with open("../BuildModel_CRNN_Attention/LossAcc/loss.pkl","rb") as f:
-    loss_lst = pickle.load(f)
-
-with open("../BuildModel_CRNN_Attention/LossAcc/acc.pkl","rb") as f:
-    acc_lst = pickle.load(f)
+    loss_lst_crnn = pickle.load(f)
 
 
-plt.figure(0)
-plt.plot(loss_lst[0], 'g-', label='loss-train')
-plt.plot(loss_lst[1], 'r--', label='loss-test')
+plt.figure(figsize=(12,4))
+plt.subplots_adjust(left=0.05,right=0.95,wspace=0.15)
+plt.subplot(121)
+plt.plot(loss_lst_crnn[0], 'r-', label='textcnn')
+plt.plot(loss_lst_rnn[0], 'g-', label='rnn_attention')
+plt.plot(loss_lst_cnn[0], 'b-', label='crnn_attention')
 
-plt.xlim(0, max(len(loss_lst[0]), len(loss_lst[1])))
+plt.xlim(0, max(len(loss_lst_cnn[0]), len(loss_lst_rnn[0]),len(loss_lst_crnn[0])))
 plt.xlabel('iteration')
-plt.ylabel('loss')
+plt.ylabel('loss-train')
 plt.legend(fontsize=10)
-plt.savefig('../BuildModel_CRNN_Attention/loss.png',dpi=250)
 
 
-plt.figure(1)
-plt.plot(acc_lst[0], 'g-', label='acc-train')
-plt.plot(acc_lst[1], 'r--', label='acc-test')
+plt.subplot(122)
+plt.plot(loss_lst_crnn[1], 'r-', label='textcnn')
+plt.plot(loss_lst_rnn[1], 'g-', label='rnn_attention')
+plt.plot(loss_lst_cnn[1], 'b-', label='crnn_attention')
 
-plt.xlim(0, max(len(acc_lst[0]), len(acc_lst[1])))
+plt.xlim(0, max(len(loss_lst_cnn[1]), len(loss_lst_rnn[1]),len(loss_lst_crnn[1])))
 plt.xlabel('iteration')
-plt.ylabel('accuracy')
+plt.ylabel('loss-test')
 plt.legend(fontsize=10)
-plt.savefig('../BuildModel_CRNN_Attention/acc.png',dpi=250)
 
-
-# plt.tight_layout()
-# plt.savefig('./pic_loss.png',dpi=250)
+plt.savefig('./loss_comparison.png',dpi=250)

@@ -1,12 +1,14 @@
 # coding: utf-8
 import numpy as np
 import tensorflow as tf
-from keras.layers import Dense, Conv1D, Activation, Dropout,\
-                         GlobalMaxPooling1D, Concatenate,Embedding
+from keras.layers import Dense, Activation, Dropout, \
+    Embedding, Bidirectional, TimeDistributed, GRU
 from keras import backend as K
+from AttentionL import AttentionLayer
 import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
+K.set_learning_phase(1)
 
 
 def load_data():
@@ -44,16 +46,10 @@ with tf.name_scope('embedding'):
 
 
 with tf.name_scope("NN"):
-    regions = [3,4,5]
-    inputs = []
-    convs = []
-    for region in regions:
-        x = Conv1D(250,region,strides=1,padding='valid',activation='relu')(wordsvector)
-        x = GlobalMaxPooling1D()(x)
-        convs.append(x)
-
-    x = Concatenate()(convs)
-    x = Dense(250)(x)
+    l_lstm = Bidirectional(GRU(256, return_sequences=True))(wordsvector)
+    l_dense = TimeDistributed(Dense(256))(l_lstm)  # 对句子中的每个词
+    l_att = AttentionLayer()(l_dense)
+    x = Dense(64)(l_att)
     x = Dropout(0.5)(x)
     x = Activation('relu')(x)
     x = Dense(2)(x)
@@ -70,21 +66,21 @@ saver = tf.train.Saver()
 
 with tf.Session() as sess:
     K.set_session(sess)
-    saver.restore(sess, "./model_save/model.ckpt-60")
+    saver.restore(sess, "./model_save/model.ckpt-90")
 
     pred_ = sess.run(pred, feed_dict={wordsindex: X_test})
     accuracy_ = sess.run(accuracy, feed_dict={wordsindex: X_test,labels:y_test})
-    # pred_prob = sess.run(predict,feed_dict={wordsindex: X_test})
+    pred_prob = sess.run(predict, feed_dict={wordsindex: X_test})
     print(sum(y_test) / len(y_test))
     print(sum(pred_)/len(pred_))
     print("-----acc-----")
     print(accuracy_)
 
+predict_prob = [each[1] for each in pred_prob]
+predict_prob_label = [predict_prob,y_test]
+with open("./predict_prob_label.pkl","wb") as f:
+    pickle.dump(predict_prob_label, f, pickle.HIGHEST_PROTOCOL)
 
-# predict_prob = [each[1] for each in pred_prob]
-# predict_prob_label = [predict_prob,y_test]
-# with open("./predict_prob_label.pkl","wb") as f:
-#     pickle.dump(predict_prob_label, f, pickle.HIGHEST_PROTOCOL)
 
 
 from sklearn.metrics import confusion_matrix
