@@ -73,7 +73,7 @@ saver = tf.train.Saver()
 
 with tf.Session() as sess:
     K.set_session(sess)
-    saver.restore(sess, "./model_save/model.ckpt-150")
+    saver.restore(sess, "./model_save/model.ckpt-60")
 
     inbatch_size = 2048
     inbatches_test = len(y_test) // inbatch_size
