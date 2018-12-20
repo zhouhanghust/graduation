@@ -11,6 +11,13 @@ tokenizer.rar
 **/*.ttf
 *.TTF
 **/*.TTF
+checkpoint
+**/checkpoint
+*.data-*
+*.index
+**/*.index
+*.meta
+**/*.meta
 Graduation_thesis/BuildModel/model_save/*.*
 Graduation_thesis/BuildModel_RNN/model_save/*.*
 Graduation_thesis/BuildModel_CRNN_Attention/model_save/*.*
